@@ -1,0 +1,78 @@
+<p-card>
+    <div class="d-flex justify-content-end icon">
+        <i class="pi pi-bars d-flex"></i>
+        <i class="pi pi-cog"></i>
+        <i class="pi pi-arrow-up-right"></i>
+    </div>
+
+    <h6>Ilość</h6>
+    <div class="d-flex flex-row align-items-center">
+        <input [(ngModel)]="amount" type="number" mode="decimal" class="amount">
+        <i class="pi pi-arrow-right-arrow-left d-flex justify-content-end" style="color: #0851ff; cursor: pointer;" (click)="swapData()"></i>
+    </div>
+
+    <hr class="m-0" style="border: 2px solid #0851ff;">
+
+
+    <div *ngIf="!isLoad" class="d-flex justify-content-center">
+        <i style="font-size: 4rem; margin: 1.6rem; color: #0851ff;" class="pi pi-spin pi-spinner"></i>
+    </div>
+
+    <div *ngIf="isLoad">
+        <p-dropdown 
+            [virtualScroll]="true" 
+            [virtualScrollItemSize]="40"
+            [options]="symbols" 
+            [(ngModel)]="selectedFirstCurrency" 
+            optionLabel="displayLabel" 
+            [filter]="true" 
+            filterBy="displayLabel" 
+            placeholder="Wybierz walutę"
+        >
+            <ng-template pTemplate="selectedItem">
+                <div class="symbol-item" *ngIf="selectedFirstCurrency">
+                    <img [class]="'flag flag-' + selectedFirstCurrency.code" />
+                    <div>{{selectedFirstCurrency.code}} / {{selectedFirstCurrency.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-symbol pTemplate="item">
+                <div class="symbol-item">
+                    <img [class]="'flag flag-' + symbol.code" />
+                    <div>{{symbol.displayLabel}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        <p-dropdown 
+            [virtualScroll]="true" 
+            [virtualScrollItemSize]="40"
+            [options]="symbols" 
+            [(ngModel)]="selectedSecondCurrency" 
+            optionLabel="displayLabel" 
+            [filter]="true" 
+            filterBy="displayLabel" 
+            placeholder="Wybierz walutę"
+        >
+            <ng-template pTemplate="selectedItem">
+                <div class="symbol-item" *ngIf="selectedSecondCurrency">
+                    <img  [class]="'flag flag-' + selectedSecondCurrency.code" />
+                    <div>{{selectedSecondCurrency.code}} / {{selectedSecondCurrency.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-symbol pTemplate="item">
+                <div class="symbol-item">
+                    <img  [class]="'flag flag-' + symbol.code" />
+                    <div>{{symbol.displayLabel}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <button (click)="convert()" class="convertButton">konwertować</button>
+
+    <div *ngIf="!isCalculate" class="d-flex justify-content-center">
+        <i style="font-size: 1rem; margin-top: 1.5rem; color: #0851ff;" class="pi pi-spin pi-spinner"></i>
+    </div>
+    <div *ngIf="isCalculate">
+        <label class="summary">{{resultValue}}</label>
+    </div>
+
+</p-card>

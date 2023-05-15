@@ -1,0 +1,11 @@
+.box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #0851ff;
+    max-width: 35rem;
+    height: 22rem;
+    padding: 1rem 1rem .5rem;
+}

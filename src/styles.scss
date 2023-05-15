@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+body{
+  background-color: #ececec;
+}
+
+@media only screen and (max-width: 992px) {
+    app-arrow {
+      visibility: hidden;
+
+    }
+    app-converter{
+      transition: width .5s;
+    }
+
+  }
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "bootstrap/dist/css/bootstrap.css"
+
