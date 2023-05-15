@@ -13,10 +13,14 @@
 
     <hr class="m-0">
 
-    <div *ngIf="!isLoad; else elseBlock" class="d-flex justify-content-center">
+    <div *ngIf="load == 'false'" class="d-flex justify-content-center">
         <i class="pi pi-spin pi-spinner spinner-dropdown"></i>
     </div>
-    <ng-template #elseBlock>
+    <div *ngIf="load == 'error'" class="d-flex justify-content-center">
+        <p class="error">Błąd serwera</p>
+    </div>
+
+    <div *ngIf="load == 'true'">
         <p-dropdown 
             [virtualScroll]="true" 
             [virtualScrollItemSize]="40"
@@ -63,7 +67,7 @@
                 </div>
             </ng-template>
         </p-dropdown>
-    </ng-template>
+    </div>
     <button (click)="convert()" class="convertButton">konwertować</button>
 
     <div *ngIf="!isCalculate; else elseblock" class="d-flex justify-content-center">

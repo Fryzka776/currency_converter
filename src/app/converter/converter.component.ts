@@ -19,20 +19,23 @@ export class ConverterComponent implements OnInit{
   amount?: number;
   convertData?: ConvertData;
   resultValue: string = ' = ';
-  isLoad: boolean = false;
+  load: string = 'false';
   isCalculate: boolean = true;
+  loadState: string[] = ['true', 'error'];
 
   async ngOnInit(): Promise<void> {
-    // this.symbols = await this.currencyService.getSymbols();
-    if(this.symbols){
-      this.symbols = this.symbols.map((symbol: any) => {
+  this.symbols = await this.currencyService.getSymbols();
+    if(this.symbols && this.symbols[0].code != ''){
+      this.symbols = this.symbols.map((symbol: Symbol) => {
         return {
           ...symbol,
           displayLabel: symbol.code + ' / ' + symbol.name
         };
       });
+      this.load = this.loadState[0];
+    }else{
+      this.load = this.loadState[1];
     }
-    this.isLoad = true;
   }
 
   async convert(): Promise<void>{

@@ -60,24 +60,20 @@
     background-image: url('../img/empty.png');
     padding: 0;
     margin-top: -.5rem;
-  }
-  
-  .flag-RUB {
+}
+.flag-RUB {
     background-image: url('../img/RUB.png');
-  }
-  
-  .flag-PLN {
+}  
+.flag-PLN {
     background-image: url('../img/PLN.png');
-  }
-  
-  .flag-USD {
+}
+.flag-USD {
     background-image: url('../img/USD.png');
-  }
-  
-  .symbol-item {
+}
+.symbol-item {
     display: flex;
     align-items: center;
-  }
+}
 .spinner-dropdown{
     font-size: 4rem; 
     margin: 1.6rem; 
@@ -93,4 +89,9 @@
     justify-content: end;
     color: #0851ff; 
     cursor: pointer;
+}
+.error{
+    color: #0851ff;
+    font-weight: bold;
+    margin: 3rem;
 }
