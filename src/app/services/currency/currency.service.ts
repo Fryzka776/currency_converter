@@ -30,6 +30,7 @@ export class CurrencyService {
     const translateDictionary: SymbolDictionary = new SymbolDictionary();
     const response =  await fetch("https://api.apilayer.com/exchangerates_data/symbols", this.createRequest());
     const result = await response.json();
+    console.log(result);
 
     const codeFields = Object.getOwnPropertyNames(result.symbols);
 

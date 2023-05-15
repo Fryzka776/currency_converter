@@ -30,7 +30,6 @@ export class ConverterComponent implements OnInit{
         displayLabel: symbol.code + ' / ' + symbol.name
       };
     });
-    console.log(this.symbols);
     this.isLoad = true;
   }
 
