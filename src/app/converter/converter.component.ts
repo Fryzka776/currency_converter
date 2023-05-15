@@ -23,13 +23,15 @@ export class ConverterComponent implements OnInit{
   isCalculate: boolean = true;
 
   async ngOnInit(): Promise<void> {
-    this.symbols = await this.currencyService.getSymbols();
-    this.symbols = this.symbols.map((symbol: any) => {
-      return {
-        ...symbol,
-        displayLabel: symbol.code + ' / ' + symbol.name
-      };
-    });
+    // this.symbols = await this.currencyService.getSymbols();
+    if(this.symbols){
+      this.symbols = this.symbols.map((symbol: any) => {
+        return {
+          ...symbol,
+          displayLabel: symbol.code + ' / ' + symbol.name
+        };
+      });
+    }
     this.isLoad = true;
   }
 

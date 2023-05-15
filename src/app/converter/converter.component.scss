@@ -78,11 +78,19 @@
     display: flex;
     align-items: center;
   }
-  
-  
-  
-  
-  
-  
-  
-  
+.spinner-dropdown{
+    font-size: 4rem; 
+    margin: 1.6rem; 
+    color: #0851ff;
+}
+.spinner-calc{
+    font-size: 1rem; 
+    margin-top: 1.5rem; 
+    color: #0851ff;
+}
+.swap{
+    display: flex;
+    justify-content: end;
+    color: #0851ff; 
+    cursor: pointer;
+}

@@ -8,17 +8,15 @@
     <h6>Ilość</h6>
     <div class="d-flex flex-row align-items-center">
         <input [(ngModel)]="amount" type="number" mode="decimal" class="amount">
-        <i class="pi pi-arrow-right-arrow-left d-flex justify-content-end" style="color: #0851ff; cursor: pointer;" (click)="swapData()"></i>
+        <i class="pi pi-arrow-right-arrow-left swap" (click)="swapData()"></i>
     </div>
 
-    <hr class="m-0" style="border: 2px solid #0851ff;">
+    <hr class="m-0">
 
-
-    <div *ngIf="!isLoad" class="d-flex justify-content-center">
-        <i style="font-size: 4rem; margin: 1.6rem; color: #0851ff;" class="pi pi-spin pi-spinner"></i>
+    <div *ngIf="!isLoad; else elseBlock" class="d-flex justify-content-center">
+        <i class="pi pi-spin pi-spinner spinner-dropdown"></i>
     </div>
-
-    <div *ngIf="isLoad">
+    <ng-template #elseBlock>
         <p-dropdown 
             [virtualScroll]="true" 
             [virtualScrollItemSize]="40"
@@ -65,14 +63,14 @@
                 </div>
             </ng-template>
         </p-dropdown>
-    </div>
+    </ng-template>
     <button (click)="convert()" class="convertButton">konwertować</button>
 
-    <div *ngIf="!isCalculate" class="d-flex justify-content-center">
-        <i style="font-size: 1rem; margin-top: 1.5rem; color: #0851ff;" class="pi pi-spin pi-spinner"></i>
+    <div *ngIf="!isCalculate; else elseblock" class="d-flex justify-content-center">
+        <i class="pi pi-spin pi-spinner spinner-calc"></i>
     </div>
-    <div *ngIf="isCalculate">
+    <ng-template #elseblock>
         <label class="summary">{{resultValue}}</label>
-    </div>
+    </ng-template>
 
 </p-card>
