@@ -7,7 +7,7 @@
 
     <h6>Ilość</h6>
     <div class="d-flex flex-row align-items-center">
-        <input [(ngModel)]="amount" type="number" mode="decimal" class="amount">
+        <input [(ngModel)]="amount" step="0.01" type="number" class="amount">
         <i class="pi pi-arrow-right-arrow-left swap" (click)="swapData()"></i>
     </div>
 

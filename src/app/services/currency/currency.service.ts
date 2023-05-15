@@ -14,7 +14,7 @@ export class CurrencyService {
 
   createHeader(): Headers{
     const myHeaders = new Headers();
-    myHeaders.append("apikey", "JWJcfhnyncVWFqQbnWhdJ6FKPZtusMMB");
+    myHeaders.append("apikey", "sZh1t3DCFEqJmKjd4heqB6fpmeE1hbqC");
     return myHeaders;
   }
 
